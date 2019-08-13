@@ -1,0 +1,17 @@
+# 登陆所需的账号密码
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+  boot:
+    admin:
+      client:
+        username: jay
+        password: jay
+        instance:
+          metadata:
+            user:
+              name: jay
+              password: jay
+
