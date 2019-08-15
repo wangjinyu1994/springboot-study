@@ -2,6 +2,7 @@ package com.xy.studyboot.controller;
 
 import com.battcn.swagger.properties.ApiDataType;
 import com.battcn.swagger.properties.ApiParamType;
+import com.xy.studyboot.exception.CustomException;
 import com.xy.studyboot.pojo.User;
 import com.xy.studyboot.service.TestService;
 import com.xy.studyboot.util.RedisUtil;
@@ -14,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +68,17 @@ public class TestController {
        }
     }
 
+    @GetMapping("/index")
+    @ApiOperation("测试thymeleaf模版使用")
+    public ModelAndView index(Integer a){
+        if (a == 0){
+            throw new CustomException(400 , "参数错误!");
+        }
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        modelAndView.addObject("login" , "测试thymeleaf模版使用");
+        return modelAndView;
+    }
 
 
 }
