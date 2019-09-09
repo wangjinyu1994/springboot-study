@@ -7,10 +7,13 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
+@EnableWebSocket
 public class StudyBootApplication {
 
 	public static void main(String[] args) {
@@ -29,4 +32,10 @@ public class StudyBootApplication {
 		taskScheduler.setPoolSize(10);
 		return taskScheduler;
 	}
+
+	@Bean
+	public ServerEndpointExporter serverEndpointExporter(){
+		return new ServerEndpointExporter();
+	}
+
 }

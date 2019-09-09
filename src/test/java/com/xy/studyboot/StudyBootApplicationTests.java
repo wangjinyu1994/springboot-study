@@ -31,8 +31,10 @@ public class StudyBootApplicationTests {
 		List<User> list = dao.getList();
 		System.out.println(list.get(0).toString());
 		List<User> list1 = dao.getAllUser();
+
 		PageInfo<User> pageInfo = PageHelper.startPage(1,10).setOrderBy("id DESC").doSelectPageInfo(()->this.dao.getAllUser());
 		List<User> list2 = pageInfo.getList();
+		dao.insertUser("aa" , "bb");
 		System.out.println(list2.get(0).toString() + "*****" + pageInfo.getTotal());
 		System.out.println("=========" + list1.get(0).toString());
 

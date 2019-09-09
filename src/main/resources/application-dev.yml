@@ -55,6 +55,10 @@ spring:
 # 判断是否要延迟解析文件（相当于懒加载，一般情况下不用特意修改）
       resolve-lazily: false
 
+#  liquibase:
+#    enabled: true
+#    change-log: application-liquibase.yml
+
 mybatis:
   mapper-locations: classpath:com/xy/studyboot/mapper/*.xml
   type-aliases-package: com.xy.studyboot.pojo

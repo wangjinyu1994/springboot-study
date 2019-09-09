@@ -80,5 +80,12 @@ public class TestController {
         return modelAndView;
     }
 
+    @GetMapping("/webSocket")
+    public ModelAndView webSocket(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("web_socket.html");
+        return modelAndView;
+    }
+
 
 }
