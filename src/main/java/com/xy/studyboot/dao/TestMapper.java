@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -18,5 +19,5 @@ public interface TestMapper {
 
     List<User> getAllUser();
 
-    Integer insertUser(@Param("username") String aa, @Param("password") String bb);
+    Integer insertUser(@Param("username") String aa, @Param("password") String bb, @Param("data") LocalDateTime now);
 }

@@ -33,7 +33,7 @@ public class StudyBootApplication {
 		return taskScheduler;
 	}
 
-	@Bean
+	//@Bean
 	public ServerEndpointExporter serverEndpointExporter(){
 		return new ServerEndpointExporter();
 	}

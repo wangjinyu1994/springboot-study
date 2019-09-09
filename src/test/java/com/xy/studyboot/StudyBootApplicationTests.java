@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -28,15 +29,15 @@ public class StudyBootApplicationTests {
 	@Test
 	public void contextLoads() {
 
-		List<User> list = dao.getList();
+		/*List<User> list = dao.getList();
 		System.out.println(list.get(0).toString());
 		List<User> list1 = dao.getAllUser();
 
 		PageInfo<User> pageInfo = PageHelper.startPage(1,10).setOrderBy("id DESC").doSelectPageInfo(()->this.dao.getAllUser());
-		List<User> list2 = pageInfo.getList();
-		dao.insertUser("aa" , "bb");
-		System.out.println(list2.get(0).toString() + "*****" + pageInfo.getTotal());
-		System.out.println("=========" + list1.get(0).toString());
+		List<User> list2 = pageInfo.getList();*/
+		dao.insertUser("aa" , "bb" , LocalDateTime.now());
+		/*System.out.println(list2.get(0).toString() + "*****" + pageInfo.getTotal());
+		System.out.println("=========" + list1.get(0).toString());*/
 
 	}
 }
