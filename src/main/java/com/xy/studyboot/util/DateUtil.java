@@ -1,9 +1,7 @@
 package com.xy.studyboot.util;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 /**
  * WJY
@@ -12,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class DateUtil {
 
     public static void main(String[] args) {
-        System.out.println(addHours("2019-09-09 01:00:01" , 1));
+        System.out.println(getMonth(LocalDateTime.now()));
     }
 
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
@@ -311,6 +309,163 @@ public class DateUtil {
     public static LocalDateTime addSeconds(String data , int seconds){
         LocalDateTime localDateTime = formatStringToDate(data);
         return localDateTime.plusSeconds(seconds);
+    }
+
+    /**
+     * 计算两个时间相差多少年，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusYears(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.YEARS.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少月，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusMonths(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.MONTHS.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少天，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusDays(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.DAYS.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少星期，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusWeeks(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.WEEKS.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少小时，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusHours(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.HOURS.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少分钟，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusMinutes(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.MINUTES.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 计算两个时间相差多少秒，结果为负数说明前面的时间比后面的时间大
+     * @param time1 时间一
+     * @param time2 时间二
+     * @return long
+     */
+    public static long minusSeconds(String time1 ,String time2){
+        LocalDateTime localDateTime = formatStringToDate(time1);
+        LocalDateTime localDateTime2 = formatStringToDate(time2);
+        return ChronoUnit.MINUTES.between(localDateTime,localDateTime2);
+    }
+
+    /**
+     * 获取传入时间的年份
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getYear(LocalDateTime localDateTime){
+        return localDateTime.getYear();
+    }
+
+    /**
+     * 获取传入时间的月份
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getMonth(LocalDateTime localDateTime){
+        return MyMonth.getMonth(localDateTime.getMonth().toString());
+    }
+
+    /**
+     * 获取传入时间的日
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getDay(LocalDateTime localDateTime){
+        return localDateTime.getDayOfMonth();
+    }
+
+    /**
+     * 获取传入时间是星期几
+     * @param localDateTime 时间
+     * @return Integer
+     */
+    public static Integer getWeek(LocalDateTime localDateTime){
+        return MyDayOfWeek.getDayWeek(localDateTime.getDayOfWeek().toString());
+    }
+
+    /**
+     * 获取传入时间是一年中的第几天
+     * @param localDateTime 时间
+     * @return Integer
+     */
+    public static Integer getDayOfYear(LocalDateTime localDateTime){
+        return localDateTime.getDayOfYear();
+    }
+
+    /**
+     * 获取传入时间的时
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getHour(LocalDateTime localDateTime){
+        return localDateTime.getHour();
+    }
+
+
+    /**
+     * 获取传入时间的分
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getMinutes(LocalDateTime localDateTime){
+        return localDateTime.getMinute();
+    }
+
+    /**
+     * 获取传入时间的秒
+     * @param localDateTime 时间
+     * @return
+     */
+    public static int getSeconds(LocalDateTime localDateTime){
+        return localDateTime.getSecond();
     }
 
 
