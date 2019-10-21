@@ -35,15 +35,8 @@ public enum MyDayOfWeek {
         return day;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-    }
-
     public String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

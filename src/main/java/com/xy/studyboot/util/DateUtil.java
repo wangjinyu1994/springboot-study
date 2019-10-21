@@ -9,13 +9,14 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateUtil {
 
-    public static void main(String[] args) {
-        System.out.println(getMonth(LocalDateTime.now()));
-    }
-
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
     public static final String DEFAULT_TIME_FORMAT = "HH:mm:ss";
     public static final String DEFAULT_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static void main(String[] args) {
+
+        System.out.println(getDateTimeOfTimestamp(1569128950000L));
+    }
 
     /**
      * 格式化后的日期字符串，默认使用 yyyy-MM-dd HH:mm:ss
